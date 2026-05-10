@@ -1,2 +1,7 @@
 @import "tailwindcss";
 @import "@heroui/styles"; 
+
+.container{
+    max-width: 1408px;
+    width: 100%;
+}
