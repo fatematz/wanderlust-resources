@@ -12,9 +12,9 @@ const Banner = () => {
                 backgroundSize: "cover",
                 backgroundPosition: "center",
             }}
-            className=" min-h-[746px]  "
+            className=" min-h-[746px] w-full "
         >
-            <div className="text-white mt-[190px] text-center">
+            <div className="text-white pt-[190px] text-center">
             <div className="">
 
             <h1 className="text-[90px] font-semibold leading-[100%] ">Discover Your <br /> Next Adventure</h1>
