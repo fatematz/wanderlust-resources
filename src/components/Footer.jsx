@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 const Footer = () => {
     return (
         <div className="bg-[#111111] text-white px-16 py-16 ">
-            <div className="container">
+            <div className="max-w-[1400px] w-full mx-auto">
             {/* Top Section */}
             <div className="mb-12 ">
                 <h1 className="text-6xl font-bold mb-4">Wanderlast</h1>
