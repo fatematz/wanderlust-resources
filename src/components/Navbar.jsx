@@ -4,11 +4,11 @@ import Link from "next/link";
 const Navbar = () => {
     return (
         <div className="  py-4 absolute  w-full" >
-            <div className="flex justify-between items-center  bg-white px-4 max-w-[1400px] w-full mx-auto ">
+            <div className="flex justify-between items-center  bg-white px-4  max-w-[1400px] w-full mx-auto ">
                 <div className="">
                     <ul className="flex gap-4">
                         <li> <Link href='/'>Home</Link></li>
-                        <li> <Link href='/destinations'>Destinations</Link></li>
+                        <li> <Link href='/destination'>Destinations</Link></li>
                         <li> <Link href='/bookings'>My Bookings</Link> </li>
                         <li> <Link href='/addDestination'>Add Destination</Link></li>
                     </ul>
@@ -20,7 +20,7 @@ const Navbar = () => {
                     {/* ul>li*5 */}
                     <ul className="flex gap-4">
                         <li> <Link href='/profile'>Profile</Link> </li>
-                        <li> <Link href='/login'>Login</Link> </li>
+                        <li> <Link href='/signin'>Login</Link> </li>
                         <li> <Link href='/signup'>Sign Up</Link> </li>
                     </ul>
                 </div>
