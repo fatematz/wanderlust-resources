@@ -10,6 +10,16 @@ const Navbar = () => {
   const user = session?.user;
   console.log(user);
 
+  const handleDelete = async () => {
+    await authClient.signOut({
+     fetchOptions: {
+    onSuccess: () => {
+      router.push("/signin"); // redirect to login page
+    },
+  },
+    })
+  }
+
   return (
     <div className="  py-4 absolute  w-full">
       <div className="flex justify-between items-center  bg-white px-4  max-w-[1400px] w-full mx-auto ">
@@ -48,6 +58,7 @@ const Navbar = () => {
               <>
                 <Avatar>
                   <Avatar.Image
+                  referrerPolicy="no-referrer"
                     alt="John Doe"
                     src={user?.image}
                   />
@@ -56,7 +67,7 @@ const Navbar = () => {
 
                   <li>
                  
-                  <Button variant="danger" className={'rounded-none'} >Logout</Button>{" "}
+                  <Button onClick={handleDelete} variant="danger" className={'rounded-none'} >Logout</Button>{" "}
                 </li>
               </>
             ) : (
