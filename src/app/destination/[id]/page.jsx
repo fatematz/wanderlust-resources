@@ -1,14 +1,21 @@
+import BookingCard from "@/components/BookingCard";
 import { DeleteDialog } from "@/components/DeleteDialog";
 import EditModal from "@/components/EditModal";
+
 import Link from "next/link";
 
 const DestinationDetails = async ({ params }) => {
   const { id } = await params;
 
+
+
   const res = await fetch(`http://localhost:5000/destination/${id}`, {
     cache: "no-store",
   });
   const destination = await res.json();
+
+  console.log("destination:", destination) 
+
 
   return (
     <div className="min-h-screen bg-white pt-[80px]">
@@ -173,75 +180,7 @@ const DestinationDetails = async ({ params }) => {
           </div>
 
           {/* Right — Booking Card */}
-          <div className="w-full lg:w-[300px] xl:w-[340px]">
-            <div className="border border-gray-200 p-6 sticky top-[90px]">
-              <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">
-                Starting from
-              </p>
-              <p className="text-4xl font-bold text-[#15A1BF] mb-1">
-                ${Number(destination.price).toLocaleString()}
-              </p>
-              <p className="text-xs text-gray-400 mb-6">per person</p>
-
-              {/* Date */}
-              <div className="border border-gray-200 px-4 py-3 text-sm text-gray-500 mb-4">
-                {destination.departureDate
-                  ? new Date(destination.departureDate).toLocaleDateString(
-                      "en-US",
-                      {
-                        month: "2-digit",
-                        day: "2-digit",
-                        year: "numeric",
-                      }
-                    )
-                  : "05/15/2026"}
-              </div>
-
-              {/* Book Button */}
-              <button className="w-full bg-[#15A1BF] text-white py-3.5 text-sm font-semibold flex items-center justify-center gap-2 hover:bg-[#1191ac] transition-colors">
-                Book Now
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </button>
-
-              {/* Perks */}
-              <div className="mt-4 space-y-2">
-                {[
-                  "Free cancellation up to 7 days",
-                  "Travel insurance included",
-                  "24/7 customer support",
-                ].map((perk, i) => (
-                  <div key={i} className="flex items-center gap-2">
-                    <svg
-                      className="w-4 h-4 text-green-500 flex-shrink-0"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2.5}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                    <span className="text-xs text-gray-500">{perk}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+         <BookingCard destination={destination}/>
         </div>
       </div>
     </div>
