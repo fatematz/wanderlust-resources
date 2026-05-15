@@ -8,6 +8,13 @@ import { redirect } from 'next/navigation'
 
 const SignIn = () => {
 
+      const handleGoogleSignin = async () => {
+        await authClient.signIn.social({
+          provider: "google",
+          callbackURL: "/",
+        });
+      };
+
     const onSubmit = async (e) => {
         e.preventDefault();
         
@@ -138,7 +145,7 @@ if (data) {
                 </div>
 
                 {/* Social Button */}
-                <Button variant="bordered" className="w-full border-gray-200 py-6 text-gray-700 font-medium flex gap-2">
+                <Button onClick={handleGoogleSignin} variant="bordered" className="w-full border-gray-200 py-6 text-gray-700 font-medium flex gap-2">
                     <FaGoogle className="text-red-500" /> Sign Up With Google
                 </Button>
 
