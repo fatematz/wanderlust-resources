@@ -36,11 +36,14 @@ if (!user) {
 
     // console.log( "bookingData",  bookingData)
 
+    const {data: tokenData} = await authClient.token();
+    console.log(tokenData)
 
     const res = await fetch('http://localhost:5000/bookings', {
       method: 'POST',
       headers: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        authorization: `Bearer ${tokenData?.token}`
       },
       body: JSON.stringify(bookingData)
     })
